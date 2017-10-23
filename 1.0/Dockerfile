@@ -13,7 +13,7 @@ RUN apt-get update \
 ADD https://releases.hashicorp.com/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_arm.zip /consul.zip
 
 RUN addgroup consul \
-    && adduser -S -G consul consul
+    && adduser --system --group consul
 
 RUN unzip /consul.zip \
     && rm /consul.zip \
